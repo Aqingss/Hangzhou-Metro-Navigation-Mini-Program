@@ -21,6 +21,12 @@
 
 2. **后端数据库配置**
    * `demo` 是后端项目，依赖  **MySQL 数据库** ，需提前创建数据库 `hzsubway` 。
+  
+3. 实时班次数据说明
+
+  * 当前小程序中的 “最近班次” 时间仅为模拟数据，非真实实时信息。
+
+  * 如需接入真实数据，可申请杭州政府开放平台的地铁班次API。https://data.hangzhou.gov.cn/dop/tpl/dataOpen/apiDetail.html?source_id=71062&source_type=API&source_type_str=B&version=2&source_code=33.1111.zjhz.nQBNV_20220415170440338797.SynReq
 
 ## **常见问题 ❓**
 
