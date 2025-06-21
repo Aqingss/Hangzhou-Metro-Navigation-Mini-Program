@@ -1,0 +1,179 @@
+/* 页面整体样式 */
+.container {
+    padding-bottom: 120rpx;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+}
+
+/* 用户信息模块（用户自定义样式） */
+.user-info {
+    background: linear-gradient(to bottom, #1296db,#a1cdf7 );
+    padding: 60rpx 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -20rpx;
+    /* 向上偏移，实现悬浮效果 */
+    box-shadow: 0 15rpx 30rpx rgba(18, 150, 219, 0.2);
+    /* 增强投影 */
+}
+
+.user-avatar {
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4rpx solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;  /* 水平居中 */
+    align-items: center;      /* 垂直居中 */
+}
+
+.user-avatar image {
+    width: 50%;
+    height: 50%;
+}
+
+.user-details {
+    flex: 1;
+    margin-left: 40rpx;
+}
+
+.user-name {
+    font-size: 36rpx;
+    color: white;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 15rpx;
+}
+
+.user-desc {
+    font-size: 28rpx;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+.custom-btn {
+    background-color: #07c160;
+    color: #fff;
+    border-radius: 40rpx;
+    width: 150rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 28rpx;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+/* 卡片式布局通用样式（保持一致） */
+.card-container {
+    background: #fff;
+    border-radius: 20rpx;
+    margin: 20rpx 16rpx;
+    box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.module-title {
+    padding: 24rpx 32rpx;
+    font-size: 34rpx;
+    color: #333;
+    border-bottom: 1rpx solid #f0f0f0;
+}
+
+/* 我的服务模块（横向排列） */
+.flex-function-list {
+    display: flex;
+    justify-content: space-around;
+    padding: 32rpx 0;
+}
+
+.function-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24rpx 16rpx;
+    /* 增加内边距 */
+    width: 33.33%;
+}
+
+.function-card image {
+    width: 90rpx;
+    /* 增大图标尺寸 */
+    height: 90rpx;
+    margin-bottom: 16rpx;
+}
+
+.function-card text {
+    font-size: 30rpx;
+    /* 增大文字尺寸 */
+    color: #333;
+}
+
+/* 其他模块（纵向排列带箭头） */
+.function-list {
+    padding: 0 32rpx;
+}
+
+.card-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32rpx 0;
+    /* 增加纵向间距 */
+    border-bottom: 1rpx solid #f0f0f0;
+}
+
+.card-item image:first-child {
+    width: 56rpx;
+    /* 增大左侧图标尺寸 */
+    height: 56rpx;
+    margin-right: 24rpx;
+}
+
+.card-item image:last-child {
+    width: 36rpx;
+    /* 增大箭头尺寸 */
+    height: 36rpx;
+}
+
+.card-item text {
+    font-size: 32rpx;
+    /* 增大文字尺寸 */
+    color: #333;
+}
+
+/* 底部快捷入口 */
+.bottom-section {
+    display: flex;
+    justify-content: center;
+    margin: 60rpx 0;
+    /* 增大底部间距 */
+}
+
+.help-center {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 40rpx;
+    /* 增大按钮尺寸 */
+    border-radius: 50rpx;
+    /* 更圆润的圆角 */
+    background-color: white;
+    box-shadow: 0 8rpx 16rpx rgba(0, 0, 0, 0.08);
+}
+
+.help-center image {
+    width: 40rpx;
+    /* 增大帮助图标尺寸 */
+    height: 40rpx;
+    margin-right: 16rpx;
+}
+
+.help-center text {
+    font-size: 32rpx;
+    /* 增大文字尺寸 */
+    color: #666;
+}

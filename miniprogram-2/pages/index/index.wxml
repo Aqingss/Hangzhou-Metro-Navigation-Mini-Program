@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<view class="swiper-container">
+    <swiper class="custom-swiper" current="{{currentIndex}}" interval="{{3000}}" autoplay="{{true}}" circular="{{true}}" previous-margin="100rpx" next-margin="100rpx" bindchange="swiperChange">
+        <block wx:for="{{images}}" wx:key="index">
+            <swiper-item>
+                <view class="swiper-item {{index === currentIndex ? 'active' : ''}}">
+                    <image src="{{item}}" mode="aspectFill" class="swiper-image"></image>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+    <!-- 指示器 -->
+    <view class="indicator">
+        <block wx:for="{{images}}" wx:key="index">
+            <view class="dot {{index === currentIndex ? 'active' : ''}}"></view>
+        </block>
+    </view>
+</view>
+
+<!-- 蓝色导航模块 -->
+<view class="nav-container">
+    <view class="nav-item" bindtap="navigateToStation">
+        <image src="/images/站点信息.png" class="nav-icon"></image>
+        <text class="nav-text">站点信息</text>
+    </view>
+    <view class="nav-item" bindtap="navigateToRoute">
+        <image src="/images/线路查询.png" class="nav-icon"></image>
+        <text class="nav-text">线路查询</text>
+    </view>
+    <view class="nav-item" bindtap="navigateToRecord">
+        <image src="/images/乘车记录.png" class="nav-icon"></image>
+        <text class="nav-text">乘车记录</text>
+    </view>
+</view>
+
+<!-- 新增专属互动模块 -->
+<view class="interaction-container">
+    <view class="interaction-title">专属互动</view>
+
+    <view class="selector-container">
+        <!-- 站点故事选择器 - 大矩形 -->
+        <view class="story-selector selector-item" bindtap="goToStory">
+            <view class="selector-content">
+                <image src="/images/故事绘本.png" class="selector-icon"></image>
+                <text class="selector-text">你的站点故事</text>
+            </view>
+            <view class="selector-bg"></view>
+        </view>
+
+        <!-- 站点拍摄记录选择器 - 大矩形 -->
+        <view class="record-selector selector-item" bindtap="goToRecord">
+            <view class="selector-content">
+                <image src="/images/拍摄记录.png" class="selector-icon"></image>
+                <text class="selector-text">站点拍摄记录</text>
+            </view>
+            <view class="selector-bg"></view>
+        </view>
+    </view>
+</view>

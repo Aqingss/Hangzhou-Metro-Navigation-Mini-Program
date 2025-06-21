@@ -1,0 +1,53 @@
+<!--pages/route-detail/route-detail.wxml-->
+<!-- 顶部导航栏 -->
+<view class="nav-bar">
+  <view class="nav-left" bindtap="goBack">
+    <image src="/images/箭头左.png" mode="aspectFit"></image>
+  </view>
+  <view class="nav-title">路线详情</view>
+</view>
+
+<!-- 内容区域 -->
+<view class="content" wx:if="{{routeData}}">
+  <!-- 路线摘要 -->
+  <view class="route-summary">
+    <view class="time-info">
+      <text class="time-text">{{routeData.time}}</text>
+      <text class="distance-text">距离: {{routeData.distance}}公里</text>
+      <text class="cost-text">费用: {{routeData.cost}}元</text>
+    </view>
+    <view class="type-tag {{routeData.typeClass}}">
+      <text>{{routeData.type}}</text>
+    </view>
+  </view>
+
+  <!-- 路线描述 -->
+  <view class="route-desc">
+    <text class="desc-title">路线详情</text>
+    <text class="desc-text">{{routeData.desc}}</text>
+  </view>
+
+  <!-- 交通方式图标 -->
+  <view class="transport-icons">
+    <view class="icon-item" wx:for="{{routeData.transports}}" wx:key="index">
+      <image src="{{item.icon}}" mode="aspectFit"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+
+  <!-- 详细路线步骤 -->
+  <view class="route-steps" wx:if="{{routeData.stations && routeData.stations.length > 0}}">
+    <text class="steps-title">途经站点</text>
+    <view class="station-list">
+      <view class="station-item" wx:for="{{routeData.stations}}" wx:key="index">
+        <view class="station-dot"></view>
+        <text class="station-name">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-btn">
+    <button class="nav-btn" bindtap="startNavigation">开始导航</button>
+  </view>
+</view>

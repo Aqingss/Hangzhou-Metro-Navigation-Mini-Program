@@ -1,0 +1,103 @@
+<!-- 顶部导航栏 -->
+<view class="nav-bar">
+  <view class="nav-left" bindtap="goBack">
+    <image src="/images/箭头左.png" mode="aspectFit"></image>
+  </view>
+  <view class="nav-title">路线选择</view>
+</view>
+
+<!-- 内容区域 -->
+<view class="content">
+  <!-- 起点终点卡片 -->
+  <view class="route-info-card">
+    <view class="route-point">
+      <view class="point-dot red"></view>
+      <text class="point-text">{{startPlace}}</text>
+    </view>
+    <view class="route-point">
+      <view class="point-dot green"></view>
+      <text class="point-text">{{endPlace}}</text>
+    </view>
+  </view>
+
+  <!-- 路线类型标签 -->
+  <view class="route-tabs">
+    <view 
+      wx:for="{{routeTypes}}" 
+      wx:key="index" 
+      class="tab-item {{activeTab === index ? 'active' : ''}}"
+      bindtap="switchTab"
+      data-index="{{index}}"
+    >
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading-mask" wx:if="{{isLoading}}">
+    <view class="loading-icon">
+      <image src="/images/加载.json" mode="aspectFit"></image>
+      <text>正在获取路线...</text>
+    </view>
+  </view>
+
+  <!-- 错误提示 -->
+  <view class="error-tip" wx:if="{{errorMsg}}">
+    <text>{{errorMsg}}</text>
+    <button class="retry-btn" bindtap="fetchRoutes(activeTab)">重试</button>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!isLoading && !errorMsg && currentRoutes.length === 0}}">
+    <image src="/images/空状态.png" mode="aspectFit"></image>
+    <text>暂无路线信息</text>
+  </view>
+
+  <!-- 路线列表 -->
+  <view class="route-list" wx:if="{{!isLoading && !errorMsg && currentRoutes.length > 0}}">
+    <view 
+      class="route-card" 
+      wx:for="{{currentRoutes}}" 
+      wx:key="index"
+      bindtap="selectRoute"
+      data-index="{{index}}"
+    >
+      <!-- 路线头部 -->
+      <view class="route-header">
+        <view class="time-info">
+          <text class="time-text">{{item.time}}</text>
+          <text class="distance-text">距离: {{item.distance}}公里</text>
+        </view>
+        <view class="type-tag {{item.typeClass}}">
+          <text>{{item.type}}</text>
+        </view>
+      </view>
+      
+      <!-- 路线详情 -->
+      <view class="route-detail">
+        <text class="detail-text">{{item.desc}}</text>
+        <!-- 交通方式图标 -->
+        <view class="transport-icons">
+          <view class="icon-item" wx:for="{{item.transports}}" wx:key="index">
+            <image src="{{item.icon}}" mode="aspectFit"></image>
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+        
+        <!-- 地铁站点列表 -->
+        <view class="station-list" wx:if="{{item.stations && item.stations.length > 0}}">
+          <view class="station-item" wx:for="{{item.stations}}" wx:key="index">
+            <view class="station-dot"></view>
+            <text class="station-name">{{item}}</text>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 路线底部 -->
+      <view class="route-footer">
+        <text class="cost-text">费用: {{item.cost}}元</text>
+        <button class="nav-btn" bindtap="startNavigation">开始导航</button>
+      </view>
+    </view>
+  </view>
+</view>

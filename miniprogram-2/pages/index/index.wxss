@@ -1,0 +1,182 @@
+.swiper-container {
+    width: 100%;
+    height: 400rpx;
+    position: relative;
+    margin-top: 10rpx;
+}
+
+.custom-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.swiper-item.active {
+    transform: scale(1.1);
+}
+
+.swiper-image {
+    width: 90%;
+    height: 90%;
+    border-radius: 20rpx;
+    box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 非活动项样式 */
+.swiper-item:not(.active) .swiper-image {
+    opacity: 0.7;
+    transform: scale(0.8);
+}
+
+/* 指示器样式 */
+.indicator {
+    display: flex;
+    justify-content: center;
+    margin-top: 20rpx;
+}
+
+.dot {
+    width: 12rpx;
+    height: 12rpx;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 6rpx;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    width: 24rpx;
+    background-color: #07c160;
+}
+
+
+/* 蓝色导航模块样式 */
+.nav-container {
+    width: 100%;
+    background-color: #1296db;
+    display: flex;
+    justify-content: space-around;
+    padding: 30rpx 0;
+    margin-top: 40rpx;
+    /* 新增：与轮播图的间距 */
+    border-radius: 16rpx;
+    box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+
+.nav-icon {
+    width: 70rpx;
+    height: 70rpx;
+    margin-bottom: 15rpx;
+}
+
+.nav-text {
+    color: white;
+    font-size: 30rpx;
+    font-weight: 500;
+}
+
+
+
+/* 专属互动模块容器 */
+.interaction-container {
+    width: 100%;
+    padding: 30rpx;
+    margin-top: 40rpx;
+    background-color: #f8f8f8;
+    border-radius: 20rpx;
+}
+
+.interaction-title {
+    font-size: 38rpx;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30rpx;
+    padding-left: 10rpx;
+}
+
+.selector-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40rpx;
+    /* 增大两个选择器之间的间距 */
+}
+
+/* 大矩形选择器样式 */
+.selector-item {
+    position: relative;
+    height: 220rpx;
+    /* 增大高度 */
+    border-radius: 20rpx;
+    overflow: hidden;
+    box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 选择器内容 */
+.selector-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 40rpx;
+}
+
+/* 选择器背景 */
+.selector-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+/* 图标和文字样式 */
+.selector-icon {
+    width: 80rpx;
+    height: 80rpx;
+    margin-right: 25rpx;
+}
+
+.selector-text {
+    font-size: 35rpx;
+    font-weight: 500;
+    color: #333;
+}
+
+/* 站点故事选择器特殊样式 */
+.story-selector .selector-bg {
+    background-color: #1E90FF;
+    /* 蓝色背景 */
+}
+
+.story-selector .selector-icon {
+    filter: drop-shadow(0 0 5rpx rgba(30, 144, 255, 0.3));
+}
+
+/* 站点拍摄记录选择器特殊样式 */
+.record-selector .selector-bg {
+    background-color: #FF8C00;
+    /* 橙色背景 */
+}
+
+.record-selector .selector-icon {
+    filter: drop-shadow(0 0 5rpx rgba(255, 140, 0, 0.3));
+}

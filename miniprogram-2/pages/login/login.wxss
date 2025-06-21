@@ -1,0 +1,91 @@
+/* 页面基础布局 */
+.login-page {
+    padding: 20rpx 30rpx;
+    background-color: #fff;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* 顶部返回按钮 */
+  .header {
+    margin-bottom: 60rpx; /* 增加顶部间距 */
+  }
+  .back-icon {
+    width: 36rpx;
+    height: 36rpx;
+  }
+  
+  /* 标题和注册按钮行 - 整体下移 */
+  .title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60rpx; /* 新增顶部间距 */
+    margin-bottom: 50rpx;
+  }
+  .page-title {
+    font-size: 48rpx;
+    font-weight: bold;
+    color: #333;
+  }
+  .register-btn {
+    font-size: 32rpx;
+    color: #2E4E8C;
+    text-decoration: underline;
+  }
+  
+  /* 输入框容器 */
+  .input-wrap {
+    margin-bottom: 40rpx;
+  }
+  .input-item {
+    border-bottom: 1rpx solid #e5e5e5;
+    padding: 24rpx 0;
+  }
+  .input-item input {
+    font-size: 28rpx;
+    color: #333;
+  }
+  
+  /* 密码行特殊处理 */
+  .password-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .forget-btn {
+    font-size: 26rpx;
+    color: #999;
+  }
+  
+  /* 登录按钮 */
+  .login-btn {
+    width: 100%;
+    background-color: #2E4E8C;
+    color: #fff;
+    font-size: 32rpx;
+    padding: 24rpx 0;
+    border-radius: 8rpx;
+    margin-bottom: 30rpx;
+  }
+  
+  /* 快捷登录提示 */
+  .quick-login-tip {
+    text-align: center;
+    font-size: 28rpx;
+    color: #999;
+    margin-bottom: 40rpx;
+  }
+  
+  /* 协议说明 */
+  .agreement {
+    font-size: 26rpx;
+    color: #666;
+    line-height: 40rpx;
+  }
+  .agreement-link {
+    color: #2E4E8C;
+    text-decoration: underline;
+  }

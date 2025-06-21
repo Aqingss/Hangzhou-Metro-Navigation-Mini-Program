@@ -1,0 +1,78 @@
+/* 页面基础布局 */
+.login-page {
+    padding: 20rpx 30rpx;
+    background-color: #fff;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* 顶部返回按钮 */
+  .header {
+    margin-bottom: 60rpx;
+  }
+  .back-icon {
+    width: 36rpx;
+    height: 36rpx;
+  }
+  
+  /* 标题 */
+  .title-row {
+    margin-top: 60rpx;
+    margin-bottom: 50rpx;
+  }
+  .page-title {
+    font-size: 48rpx;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* 输入框容器 */
+  .input-wrap {
+    margin-bottom: 40rpx;
+  }
+  .input-item {
+    border-bottom: 1rpx solid #e5e5e5;
+    padding: 24rpx 0;
+    position: relative; /* 为验证码按钮提供定位参考 */
+  }
+  .input-item input {
+    font-size: 28rpx;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* 验证码按钮 */
+  .send-code-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 26rpx;
+    color: #2E4E8C;
+    text-decoration: underline;
+  }
+  
+  /* 注册按钮 */
+  .register-btn {
+    width: 100%;
+    background-color: #2E4E8C;
+    color: #fff;
+    font-size: 32rpx;
+    padding: 24rpx 0;
+    border-radius: 8rpx;
+    margin-bottom: 30rpx;
+  }
+  
+  /* 协议说明 */
+  .agreement {
+    font-size: 26rpx;
+    color: #666;
+    line-height: 40rpx;
+  }
+  .agreement-link {
+    color: #2E4E8C;
+    text-decoration: underline;
+  }

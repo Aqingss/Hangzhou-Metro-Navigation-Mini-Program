@@ -1,0 +1,107 @@
+<view class="container">
+  <!-- 顶部标题栏 -->
+  <view class="header">
+    <navigator open-type="navigateBack" class="back-icon">返回</navigator>
+    <text class="station-name">{{stationName}}</text>
+    <button class="favorite-btn">❤️</button>
+    <button 
+      bindtap="toggleAnalysis" 
+      type="primary" 
+      size="mini"
+      loading="{{isAnalyzing}}"
+    >
+      {{isAnalyzing ? '分析中...' : 'AI分析'}}
+    </button>
+  </view>
+
+  <!-- AI分析结果 -->
+  <view class="ai-analysis" wx:if="{{showAnalysis && stationAnalysis.length}}">
+    <view class="analysis-title">AI分析结果</view>
+    <rich-text nodes="{{stationAnalysis}}"></rich-text>
+  </view>
+
+  <!-- 首末班车时间 -->
+  <view class="schedule">
+    <view class="section-title">首末班车时间</view>
+    <view wx:for="{{schedules}}" wx:key="line">
+      <view class="line-title">{{item.line}}</view>
+      <view wx:for="{{item.directions}}" wx:key="index" class="direction-time">
+        <text>{{item.direction}}</text>
+        <text>首{{item.startTime}} 末{{item.endTime}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 切换按钮 -->
+  <view class="toggle-buttons">
+    <button 
+      bindtap="switchTab" 
+      data-tab="entrances" 
+      class="{{currentTab === 'entrances' ? 'active' : ''}}"
+    >出入口信息</button>
+    <button 
+      bindtap="switchTab" 
+      data-tab="facilities" 
+      class="{{currentTab === 'facilities' ? 'active' : ''}}"
+    >站点设施</button>
+    <button 
+      bindtap="switchTab" 
+      data-tab="nextTrains" 
+      class="{{currentTab === 'nextTrains' ? 'active' : ''}}"
+    >最近班次</button>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content-area">
+    <!-- 出入口信息 -->
+    <view class="tab-content" hidden="{{currentTab !== 'entrances'}}">
+      <view class="section-title">出入口信息</view>
+      <view wx:for="{{entrances}}" wx:key="index" class="info-item">
+        <text class="info-name">{{item.name}}</text>
+        <text class="info-value">{{item.location}}</text>
+      </view>
+    </view>
+
+    <!-- 站内设施 -->
+    <view class="tab-content" hidden="{{currentTab !== 'facilities'}}">
+      <view class="section-title">站内设施</view>
+      <view wx:for="{{toilets}}" wx:key="index" class="info-item">
+        <text class="info-name">{{item.location}}</text>
+        <text class="info-value">{{item.name}}</text>
+      </view>
+      <view wx:for="{{elevators}}" wx:key="index" class="info-item">
+        <text class="info-name">{{item.name}}</text>
+        <text class="info-value">{{item.location}}</text>
+      </view>
+    </view>
+
+    <!-- 最近班次 -->
+    <view class="tab-content" hidden="{{currentTab !== 'nextTrains'}}">
+      <view class="section-title">最近班次</view>
+      
+      <!-- 实时更新部分 -->
+      <view class="train-schedule">
+        <view class="time-update">
+          <text class="current-time">{{currentTime}}</text>
+          <text class="real-time">实时更新</text>
+        </view>
+        <view 
+          wx:for="{{nextTrains}}" 
+          wx:key="direction" 
+          class="train-item"
+        >
+          <view class="direction-info">
+            <text class="direction">{{item.direction}}</text>
+            <text class="train-time">首班 {{item.firstTrain}} 末班 {{item.lastTrain}}</text>
+          </view>
+          <text 
+            class="remain-time" 
+            style="color: {{item.remainTime === '正在进站' ? '#0f0' : '#0b0'}};"
+          >
+            {{item.remainTime}}
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

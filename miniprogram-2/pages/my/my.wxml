@@ -1,0 +1,79 @@
+<view class="container">
+    <!-- 用户信息模块 -->
+    <view class="user-info">
+        <view class="user-avatar">
+            <image src="{{userInfo.avatarUrl || '/images/上传头像.png'}}" mode="aspectFill"></image>
+        </view>
+        <view class="user-details">
+            <text class="user-name">{{userInfo.nickName || '点击登录'}}</text>
+            <text class="user-desc">每一次的出行都值得期待</text>
+        </view>
+        <!-- 登录/个人中心按钮 -->
+        <view class="login-btn">
+            <button class="custom-btn" bindtap="handleLogin">
+                {{userInfo.nickName ? '个人中心' : '登录/注册'}}
+            </button>
+        </view>
+    </view>
+
+    <!-- 我的服务模块（横向排列卡片） -->
+    <view class="service-module card-container">
+        <view class="module-title">我的服务</view>
+        <view class="flex-function-list">
+            <!-- 购票记录 -->
+            <view class="function-card" bindtap="navigateToTicketRecords">
+                <image src="/images/购票记录.png" mode="aspectFit"></image>
+                <text>购票记录</text>
+            </view>
+            <!-- 开具发票 -->
+            <view class="function-card" bindtap="navigateToInvoice">
+                <image src="/images/开具发票.png" mode="aspectFit"></image>
+                <text>开具发票</text>
+            </view>
+            <!-- 支付方式 -->
+            <view class="function-card" bindtap="navigateToPaymentMethods">
+                <image src="/images/支付方式.png" mode="aspectFit"></image>
+                <text>支付方式</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- 其他模块（纵向排列卡片） -->
+    <view class="other-module card-container">
+        <view class="module-title">其他</view>
+        <view class="function-list">
+            <!-- 常见问题 -->
+            <view class="function-item card-item" bindtap="navigateToFAQs">
+                <image src="/images/常见问题.png" mode="aspectFit"></image>
+                <text>常见问题</text>
+                <image src="/images/箭头右.png" mode="aspectFit"></image>
+            </view>
+            <!-- 联系客服 -->
+            <view class="function-item card-item" bindtap="contactCustomerService">
+                <image src="/images/联系客服.png" mode="aspectFit"></image>
+                <text>联系客服</text>
+                <image src="/images/箭头右.png" mode="aspectFit"></image>
+            </view>
+            <!-- 关注我们 -->
+            <view class="function-item card-item" bindtap="followUs">
+                <image src="/images/关注我们.png" mode="aspectFit"></image>
+                <text>关注我们</text>
+                <image src="/images/箭头右.png" mode="aspectFit"></image>
+            </view>
+            <!-- 关于我们 -->
+            <view class="function-item card-item" bindtap="navigateToAbout">
+                <image src="/images/关于我们.png" mode="aspectFit"></image>
+                <text>关于我们</text>
+                <image src="/images/箭头右.png" mode="aspectFit"></image>
+            </view>
+        </view>
+    </view>
+
+    <!-- 底部快捷入口（仅保留帮助中心） -->
+    <view class="bottom-section">
+        <view class="help-center" bindtap="navigateToHelp">
+            <image src="/images/帮助中心.png" mode="aspectFit"></image>
+            <text>帮助中心</text>
+        </view>
+    </view>
+</view>

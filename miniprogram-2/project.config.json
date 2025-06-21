@@ -1,0 +1,30 @@
+{
+    "compileType": "miniprogram",
+    "setting": {
+        "coverView": true,
+        "postcss": true,
+        "minified": true,
+        "useIsolateContext": true,
+        "enhance": true,
+        "showShadowRootInWxmlPanel": true,
+        "packNpmRelationList": [],
+        "ignoreUploadUnusedFiles": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        }
+    },
+    "condition": {},
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 4
+    },
+    "libVersion": "3.8.8",
+    "packOptions": {
+        "ignore": [],
+        "include": []
+    },
+    "appid": "wx065f232f2b1ceca3",
+    "projectname": "miniprogram-2"
+}

@@ -1,0 +1,41 @@
+<!-- pages/signin/signin.wxml -->
+<view class="login-page">
+  <!-- 顶部返回按钮 -->
+  <view class="header">
+    <image class="back-icon" src="/images/箭头.png" bindtap="goBack"></image>
+  </view>
+
+  <!-- 标题 -->
+  <view class="title-row">
+    <text class="page-title">注册</text>
+  </view>
+
+  <!-- 输入框区域 -->
+  <view class="input-wrap">
+    <view class="input-item phone-input">
+      <input type="number" placeholder="请输入手机号" value="{{phone}}" bindinput="handlePhoneInput" maxlength="11" />
+      <text class="send-code-btn {{sendDisabled ? 'disabled' : ''}}" bindtap="sendVerificationCode">
+        {{sendDisabled ? countdown + 's后重新发送' : '发送验证码'}}
+      </text>
+    </view>
+    <view class="input-item">
+      <input type="number" placeholder="请输入短信验证码" value="{{code}}" bindinput="handleCodeInput" maxlength="6" />
+    </view>
+    <view class="input-item">
+      <input type="password" placeholder="请输入密码（最少8位，数字+字母）" value="{{password}}" bindinput="handlePasswordInput" />
+    </view>
+  </view>
+
+  <!-- 注册按钮 -->
+  <button class="register-btn" bindtap="handleRegister">
+    同意协议并注册
+  </button>
+
+  <!-- 协议说明 -->
+  <view class="agreement">
+    为保障您的个人隐私权益，请在点击同意按钮前认真阅读下方协议：
+    <text class="agreement-link" bindtap="openAgreement">《易通行隐私政策》</text> 
+    及 
+    <text class="agreement-link" bindtap="openAgreement">《易通行使用协议》</text>
+  </view>
+</view>

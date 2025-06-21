@@ -1,0 +1,47 @@
+<view>
+  <!-- 新增的返回按钮 -->
+  <view class="nav-back" bindtap="navigateBack">
+    <image src="/images/back.png" mode="aspectFit" class="back-icon"></image>
+    <text>返回</text>
+  </view>
+  <!-- 地铁线路部分 -->
+  <view class="subway-container">
+    <!-- 左侧线路列表 -->
+    <scroll-view class="left-line" scroll-y>
+      <block wx:for="{{subwayData}}" wx:key="index">
+        <view class="line-item {{activeLine === index ? 'active' : ''}}" bindtap="switchLine" data-index="{{index}}">
+          {{item.line}}
+        </view>
+      </block>
+    </scroll-view>
+
+    <!-- 右侧站点信息 -->
+<!-- pages/subway/subway.wxml -->
+<scroll-view class="right-station" scroll-y>
+  <block wx:for="{{subwayData}}" wx:key="index">
+    <view class="station-group" wx:if="{{activeLine === index}}">
+      <view class="station-title">{{item.line}} 站点</view>
+      <block wx:for="{{item.stations}}" wx:key="stationIndex">
+        <view 
+          class="station-item" 
+          bindtap="navigateToStationDetail" 
+          data-station-name="{{item.name}}"
+        >
+          <view class="station-name">{{item.name}}</view>
+          <view class="tags">
+            <block wx:for="{{item.tags}}" wx:key="tagIndex">
+              <view 
+                class="tag" 
+                style="background-color: {{lineColors[item]}}; color: white;"
+              >
+                {{lineMap[item] || item}}
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+</scroll-view>
+  </view>
+</view>

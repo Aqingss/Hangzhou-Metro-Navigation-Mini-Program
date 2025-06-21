@@ -1,0 +1,58 @@
+<!-- 顶部导航栏 -->
+<view class="nav-bar" style="position: fixed; left: -45rpx; top: 0rpx">
+    <view class="nav-left" bindtap="goBackToIndex" style="position: relative; left: 37rpx; top: 0rpx">
+        <image src="/images/箭头左.png" mode="widthFix"></image>
+    </view>
+    <view class="nav-title">路线查询</view>
+</view>
+<!-- 主内容区 -->
+<view class="content-container" style="height: 1333rpx; display: block; box-sizing: border-box">
+    <!-- 地址输入模块（圆角卡片） -->
+    <view class="input-group card-style">
+        <view class="input-item">
+            <view class="dot red"></view>
+            <input type="text" placeholder="在哪出发" value="{{startPlace}}" bindinput="onStartInput" bindfocus="showStartPanel" bindblur="hideSearchPanel" />
+        </view>
+        <view class="input-item">
+            <view class="dot green"></view>
+            <input type="text" placeholder="要去哪里" value="{{endPlace}}" bindinput="onEndInput" bindfocus="showEndPanel" bindblur="hideSearchPanel" />
+        </view>
+    </view>
+    <!-- 快捷入口 -->
+    <view class="shortcut-bar">
+        <view class="shortcut-item" bindtap="chooseMyLocation">
+            <image src="/images/站点信息.png" mode="widthFix"></image>
+            <text>我的位置</text>
+        </view>
+        <view class="shortcut-item" bindtap="chooseFavorite">
+            <image src="/images/收藏.png" mode="widthFix"></image>
+            <text>收藏的点</text>
+        </view>
+        <view class="shortcut-item" bindtap="chooseMapPoint">
+            <image src="/images/地图选点.png" mode="widthFix"></image>
+            <text>地图选点</text>
+        </view>
+    </view>
+    <!-- 历史搜索/推荐地点面板 -->
+    <view class="search-history" wx:if="{{showSearchPanel}}">
+        <view class="history-title">
+            <text>历史搜索</text>
+            <text class="clear-btn" bindtap="clearHistory">清空</text>
+        </view>
+        <view class="history-list">
+            <view class="history-item" wx:for="{{searchHistory}}" wx:key="index" bindtap="chooseHistoryPlace" data-item="{{item}}">
+                {{item}}
+            </view>
+        </view>
+        <view class="recommend-title">推荐地点</view>
+        <view class="recommend-list">
+            <view class="recommend-item" wx:for="{{recommendPlaces}}" wx:key="index" bindtap="chooseRecommendPlace" data-item="{{item}}">
+                {{item}}
+            </view>
+        </view>
+    </view>
+    <!-- 底部操作栏 -->
+    <view class="bottom-bar">
+        <button class="route-btn" bindtap="goChooseRoute">去选择路线</button>
+    </view>
+</view>
